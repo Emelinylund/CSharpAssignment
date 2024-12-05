@@ -1,1 +1,9 @@
-﻿Console.WriteLine("Hello,  !");
+﻿using Presentation.ConsoleApp.Dialogs;
+
+var dialog = new MenuDialog();
+dialog.ShowDialog();
+
+
+
+
+
