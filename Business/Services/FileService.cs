@@ -1,35 +1,63 @@
-﻿namespace Business.Services;
+﻿using Business.Models;
+using System.Text.Json;
+using System.Diagnostics;
+using System.Collections.Generic;
+
+namespace Business.Services;
 
     public class FileService
-    {
+{
+
     private readonly string _directoryPath;
-    private readonly string _filepath;
+    private readonly string _filePath;
+    private readonly JsonSerializerOptions _jsonSerializerOptions;
 
     public FileService(string directoryPath = "Data", string fileName = "list.json")
     {
         _directoryPath = directoryPath;
-        _filepath = Path.Combine(directoryPath, fileName);
+        _filePath = Path.Combine(_directoryPath, fileName);
+        _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
+
+
     }
 
-    // Sparar till fil
-    public void SaveContentToFile(string content)
+
+
+    public void SaveListToFile(List<User> list)
     {
-        if (!string.IsNullOrEmpty(content))
+        try
         {
+            if(!Directory.Exists(_directoryPath))
+            Directory.CreateDirectory(_directoryPath);
 
-            if (!Directory.Exists(_directoryPath))
-
-                File.WriteAllText(_filepath, content);
+            var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
         }
     }
 
-    //Hämtar från filen
-        Public string? GetContentFromFile()
+    public List<User> LoadListFromFile()
+    {
+        try
         {
-            if (File.Exists(_filepath))
-                return File.ReadAllText(_filepath);
-
-            return null;
+            if (!File.Exists(_filePath))
+                return [];
+            
+            var json = File.ReadAllText(_filePath);
+            var list = JsonSerializer.Deserialize<List<User>>(json, _jsonSerializerOptions);
+            return list ?? [];
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return [];
         }
     }
+
+
+}
+    
 

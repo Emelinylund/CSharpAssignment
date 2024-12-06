@@ -1,9 +1,10 @@
-﻿using Presentation.ConsoleApp.Dialogs;
+﻿using Business.Services;
 
-var dialog = new MenuDialog();
-dialog.ShowDialog();
+var fileService = new MenuService();
 
-
-
+while (true)
+{
+    fileService.ViewAll
+}
 
 

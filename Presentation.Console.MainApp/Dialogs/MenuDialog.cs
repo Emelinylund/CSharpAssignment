@@ -54,7 +54,7 @@ while (running)
 
             do
             {
-                Console.Write("Eneter your e-mail: ");
+                Console.Write("Enter your e-mail: ");
                 user.Email = Console.ReadLine()!;
 
                 if (string.IsNullOrEmpty(user.Email))
@@ -69,7 +69,7 @@ while (running)
 
             do
             {
-                Console.Write("Eneter your phonenumber: ");
+                Console.Write("Enter your phonenumber: ");
                 user.PhoneNumber = Console.ReadLine()!;
 
                 if (string.IsNullOrEmpty(user.PhoneNumber))
@@ -84,7 +84,7 @@ while (running)
 
             do
             {
-                Console.Write("Eneter your streetname: ");
+                Console.Write("Enter your streetname: ");
                 user.StreetName = Console.ReadLine()!;
 
                 if (string.IsNullOrEmpty(user.StreetName))
@@ -135,6 +135,7 @@ while (running)
 
         case "2":
 
+            Console.Clear();
             if (users.Count == 0)
             {
                 Console.WriteLine("No users to show.");
@@ -160,7 +161,7 @@ while (running)
         case "3":
 
             running = false;
-            Console.WriteLine("Exits");
+            Console.WriteLine("Exits...");
             break;
 
         default:
