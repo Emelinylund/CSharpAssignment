@@ -104,11 +104,17 @@ public class MenuService
         {
             Console.Write(prompt);
             input = Console.ReadLine()!;
-            if (string.IsNullOrEmpty(input))
+            if (!InputValidator.IsValidInput(input, out string errorMessage))
             {
-                Console.WriteLine("You must enter a value.");
+                Console.WriteLine($"Error: {errorMessage}");
+                continue;
             }
-        } while (string.IsNullOrEmpty(input));
+
+            // Omvandla input till små bokstäver (om det behövs)
+            input = InputValidator.ToLowerCase(input);
+
+            break; // Godkänd input, bryt loopen
+        } while (true);
 
         return input;
     }
