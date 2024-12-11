@@ -1,10 +1,17 @@
 ﻿using Business.Services;
 
-var fileService = new MenuService();
-
-while (true)
+class Program
 {
-    fileService.ViewAll
-}
+    static void Main(string[] args)
+    {
+        
+        var userService = new UserService();
 
+        
+        var menuService = new MenuService(userService);
+
+        
+        menuService.RunMenu();
+    }
+}
 

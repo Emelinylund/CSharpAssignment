@@ -1,5 +1,5 @@
-﻿using System.Collections.Specialized;
-
+﻿using System.Collections.Generic;
+using System.Security.Claims;
 namespace Business.Models;
 
 public class User
@@ -21,5 +21,10 @@ public class User
     public string City { get; set; } = null!;
 
     public string FullName => $"{FirstName} {LastName}";
+
+    public override string ToString()
+    {
+        return $"{FullName}, {Email}, {PhoneNumber}, {StreetName}, {PostCode}, {City} ";
+    }
 }
  

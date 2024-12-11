@@ -1,15 +1,17 @@
 ﻿using Business.Models;
+using System.Collections.Generic;
 
 namespace Business.Services;
 
     public class UserService
     {
-    
-        private List<User> _users = [];
-    private readonly FileService _fileService = new FileService();
+
+    private List<User> _users = [];
+    private readonly FileService _fileService = new(); 
    
         public void Add(User user)
         {
+        
         _users.Add(user);
         _fileService.SaveListToFile(_users);
 
@@ -22,9 +24,15 @@ namespace Business.Services;
           return _users;
         }
 
-       /* internal IEnumerable<object> GetAllUsers()
-        {
-          throw new NotImplementedException();
-        }*/
+    public List<User> GetAllUsers()
+    {
+        _users = _fileService.LoadListFromFile();
+        return _users;
     }
+
+    public IEnumerable<User> GetUsers()
+    {
+        throw new NotImplementedException();
+    }
+}
 

@@ -1,11 +1,11 @@
 ﻿using Business.Models;
 using System.Text.Json;
 using System.Diagnostics;
-using System.Collections.Generic;
+using Business.Interfaces;
+
 
 namespace Business.Services;
-
-    public class FileService
+public class FileService : IFileService 
 {
 
     private readonly string _directoryPath;
@@ -30,7 +30,7 @@ namespace Business.Services;
             if(!Directory.Exists(_directoryPath))
             Directory.CreateDirectory(_directoryPath);
 
-            var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
+            var json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true});
             File.WriteAllText(_filePath, json);
         }
         catch (Exception ex)
@@ -57,7 +57,10 @@ namespace Business.Services;
         }
     }
 
-
+    public void SaveToFile(List<User> users)
+    {
+        throw new NotImplementedException();
+    }
 }
     
 
