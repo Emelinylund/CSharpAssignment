@@ -7,4 +7,6 @@ public interface IFileService
 {
     void SaveToFile(List<User> users);
     List<User> LoadListFromFile();
+    void SaveListToFile(List<User> users);
 }
+

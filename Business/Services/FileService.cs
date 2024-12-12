@@ -21,8 +21,13 @@ public class FileService : IFileService
 
     }
 
+    public string GetContentFromFile()
+    {
+        if (File.Exists(_filePath))
+            return File.ReadAllText(_filePath);
 
-
+        return null!;
+    }
     public void SaveListToFile(List<User> list)
     {
         try

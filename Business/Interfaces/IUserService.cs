@@ -8,3 +8,6 @@ public interface IUserService
     void ViewAllUsers (List<User> userList);
 
 }
+
+//bool CreateContact(User contact);
+   // IEnumerable<User> GettAllUsers();

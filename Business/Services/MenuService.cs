@@ -46,10 +46,11 @@ public class MenuService
 
     private void ShowMenuOptions()
     {
-        Console.WriteLine("Choose an alternative then press enter:");
+        Console.WriteLine("####### MAIN MENU #######");
         Console.WriteLine("1. Add new user:");
         Console.WriteLine("2. View all users:");
         Console.WriteLine("3. Exit program:");
+        Console.Write("Select option: ");
     }
 
     private void CreateUserDialog()
@@ -110,10 +111,11 @@ public class MenuService
                 continue;
             }
 
-            // Omvandla input till små bokstäver (om det behövs)
+            // Generated with chat GTP
             input = InputValidator.ToLowerCase(input);
 
-            break; // Godkänd input, bryt loopen
+            break;
+
         } while (true);
 
         return input;

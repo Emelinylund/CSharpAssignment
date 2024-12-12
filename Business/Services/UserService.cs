@@ -1,13 +1,15 @@
-﻿using Business.Models;
-using System.Collections.Generic;
+﻿using Business.Interfaces;
+using Business.Models;
+
 
 namespace Business.Services;
 
-    public class UserService
+    public class UserService : IUserService
     {
 
     private List<User> _users = [];
-    private readonly FileService _fileService = new(); 
+    private readonly FileService _fileService = new();
+    
    
         public void Add(User user)
         {
@@ -31,6 +33,16 @@ namespace Business.Services;
     }
 
     public IEnumerable<User> GetUsers()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CreateNewUser(List<User> userList)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ViewAllUsers(List<User> userList)
     {
         throw new NotImplementedException();
     }
