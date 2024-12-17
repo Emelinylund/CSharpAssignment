@@ -4,10 +4,10 @@ namespace Business.Interfaces;
 
 public interface IUserService
 {
-    void CreateNewUser (List<User> userList);
-    void ViewAllUsers (List<User> userList);
+    void CreateNewUser(List<User> userList);
+    void ViewAllUsers(List<User> userList);
 
 }
 
 //bool CreateContact(User contact);
-   // IEnumerable<User> GettAllUsers();
+    //IEnumerable<User> GettAllUsers();
