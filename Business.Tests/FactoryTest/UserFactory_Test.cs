@@ -1,6 +1,6 @@
 ﻿
-using Business.Factories; // Se till att detta namespace är importerat
-using Business.Models;    // För att få tillgång till User-klassen
+using Business.Factories;
+using Business.Models;   
 using Xunit;
 
 namespace Business.Tests.Factories;
@@ -10,15 +10,12 @@ public class UserFactory_Test
     [Fact]
     public void Create_ShouldReturnNewUser()
     {
-        // Arrange
         
-        
-        // Act
-        var user = UserFactory.Create(); // Anropa den statiska Create-metoden från UserFactory
+        var user = UserFactory.Create(); 
 
-        // Assert
-        Assert.NotNull(user);             // Kontrollera att objektet inte är null
-        Assert.IsType<User>(user);        // Kontrollera att objektet är av typen User
+        
+        Assert.NotNull(user);             
+        Assert.IsType<User>(user);        
         
     }
 
